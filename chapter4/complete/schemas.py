@@ -3,7 +3,6 @@ from pydantic import BaseModel, ConfigDict
 from typing import List
 from datetime import date
 
-
 class Performance(BaseModel):
     model_config = ConfigDict(from_attributes = True)
     performance_id : int
@@ -11,8 +10,6 @@ class Performance(BaseModel):
     week_number : str
     fantasy_points : float
     last_changed_date : date
-        
-
 
 class PlayerBase(BaseModel):
     model_config = ConfigDict(from_attributes = True)    
@@ -27,7 +24,6 @@ class Player(PlayerBase):
     model_config = ConfigDict(from_attributes = True)
     performances: List[Performance] = []
 
-
 class TeamBase(BaseModel):
     model_config = ConfigDict(from_attributes = True)
     league_id : int
@@ -38,7 +34,6 @@ class TeamBase(BaseModel):
 class Team(TeamBase):
     model_config = ConfigDict(from_attributes = True)
     players: List[PlayerBase] = []
-
 
 class League(BaseModel):
     model_config = ConfigDict(from_attributes = True)
